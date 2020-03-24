@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import TimeCap from './timeCap';
+import TimeCap from './TimeCap';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<TimeCap />, document.getElementById('root'));
