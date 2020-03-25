@@ -9,7 +9,7 @@ export class ClickMeButton extends React.Component {
     render() {
         return (
             <Button variant="primary" onClick={this.onSubmit} type="submit">
-                Submit
+                SAVE ME
             </Button>
         )
     }

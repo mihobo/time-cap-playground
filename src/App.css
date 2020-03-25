@@ -4,7 +4,7 @@
 
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +35,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #29E196;
+  font-size: 12px;
 }

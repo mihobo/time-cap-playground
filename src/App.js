@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import TimeCap from './TimeCap'
+import radiation from './radiation.svg';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ClickMeButton } from './ClickMeButton';
 import './App.css';
@@ -13,12 +14,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={radiation} className="App-logo" alt="logo" />
           <p>
-            Herro World
+            This is not a drill. I repeat. THIS IS NOT A DRILL.
           </p>
           <BrowserRouter>
             <Route exact path="/" component={ClickMeButton} />
+            <Route path='/' render={(props) => <TimeCap {...props} /> } />
           </BrowserRouter>
         </header>
       </div>

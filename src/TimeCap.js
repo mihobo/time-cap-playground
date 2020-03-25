@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IdleTimer from 'react-idle-timer';
 import { IdleTimeOutPopup } from './IdlePopup';
-import App from './App';
+import './App.css';
 
 export default class TimeCap extends Component {
   constructor(props) {
@@ -65,14 +65,15 @@ export default class TimeCap extends Component {
           onAction={this.onAction}
           debounce={250}
           timeout={this.state.timeout} />
-        {<App/>}
 
-        <IdleTimeOutPopup
-            showModal={this.state.showModal}
-            handleClose={this.handleClose}
-            handleLogout={this.handleLogout}
-        />
+        <div className="">
+          <IdleTimeOutPopup
+              showModal={this.state.showModal}
+              handleClose={this.handleClose}
+              handleLogout={this.handleLogout}
+          />
       </div>
+    </div>
     )
   }
 }
