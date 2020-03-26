@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import IdleTimer from 'react-idle-timer';
 import { IdleTimeOutPopup } from './IdlePopup';
 import './App.css';

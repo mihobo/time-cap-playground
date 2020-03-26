@@ -8,7 +8,7 @@ export class ClickMeButton extends React.Component {
 
     render() {
         return (
-            <Button variant="primary" onClick={this.onSubmit} type="submit">
+            <Button variant="outline-warning" onClick={this.onSubmit} type="submit">
                 SAVE ME
             </Button>
         )
