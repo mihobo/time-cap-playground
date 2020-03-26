@@ -3,6 +3,7 @@ import TimeCap from './TimeCap'
 import radiation from './radiation.svg';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ClickMeButton } from './ClickMeButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends React.Component {

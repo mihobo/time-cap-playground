@@ -3,13 +3,13 @@ import IdleTimer from 'react-idle-timer';
 import { IdleTimeOutPopup } from './IdlePopup';
 import './App.css';
 
-export default class TimeCap extends Component {
+class TimeCap extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       showModal: false,
-      timeout:1000 * 5 * 1,
+      timeout: 1000 * 5 * 1,
       isTimedOut: false
     }
 
@@ -17,8 +17,9 @@ export default class TimeCap extends Component {
     this.onAction = this._onAction.bind(this)
     this.onActive = this._onActive.bind(this)
     this.onIdle = this._onIdle.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+
+    this.handleRevive = this.handleRevive.bind(this)
+    this.handleDieOut = this.handleDieOut.bind(this)
   }
 
   _onAction(e) {
@@ -30,6 +31,11 @@ export default class TimeCap extends Component {
     console.log('user is aliiiveee!', e)
     console.log('time remaining', this.idleTimer.getRemainingTime())
     this.setState({isTimedOut: false})
+  }
+
+  _onIdle(e) {
+    console.log('user is a zombie :[', e)
+    console.log('last movement recorded', this.idleTimer.getLastActiveTime())
     const isTimedOut = this.state.isTimedOut
       if (isTimedOut) {
           console.log('timed out yo');
@@ -40,18 +46,14 @@ export default class TimeCap extends Component {
       }
   }
 
-  _onIdle(e) {
-    console.log('user is a zombie :[', e)
-    console.log('last movement recorded', this.idleTimer.getLastActiveTime())
+  handleRevive() {
+    this.setState({showModal: false})
+    console.log('you have been revived.')
   }
 
-  handleClose() {
+  handleDieOut() {
     this.setState({showModal: false})
-  }
-
-  handleLogout() {
-    this.setState({showModal: false})
-    console.log('logged out')
+    console.log('you are dead. better luck next time.')
   }
 
   render() {
@@ -66,14 +68,14 @@ export default class TimeCap extends Component {
           debounce={250}
           timeout={this.state.timeout} />
 
-        <div className="">
           <IdleTimeOutPopup
               showModal={this.state.showModal}
-              handleClose={this.handleClose}
-              handleLogout={this.handleLogout}
+              handleRevive={this.handleRevive}
+              handleDieOut={this.handleDieOut}
           />
-      </div>
     </div>
     )
   }
 }
+
+export default TimeCap
